@@ -5,4 +5,4 @@ console.log("Array before: " + arr);
 
 arr = arr.map(elem => elem * 2);
 
-console.log("Array after: " + arr);
+console.log("Array after: " + arr); 
