@@ -129,7 +129,19 @@ test bool testArrowWithThis()
  */
  
 Expression desugar((Expression)`[ <Expression r> | <{Generator ","}+ gens> ]`) {
-	return (Expression)``;
+	return (Expression)`(function() {
+	'  var result = [];
+	'  {
+	'     var coll = array;
+	'     for (var i = 0; i \< coll.length; i++) {
+	'       var x = coll[i];
+	'       if (x % 2) {
+	'         result.push(x);
+	'       }
+	'     }
+	'  }
+	'  return result;
+	'})()`;
 } 
  
 Expression dummyExp() = (Expression)`NOT_YET_IMPLEMENTED`;
